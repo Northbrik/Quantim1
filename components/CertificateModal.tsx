@@ -54,11 +54,16 @@ export default function CertificateModal() {
               Close
             </button>
           </div>
-          <iframe
-            src="/credentials/certificate.pdf#view=FitH&toolbar=1"
-            title="Charu Sharma — Quantum Therapy certificate"
-            className="flex-1 w-full border-0 bg-paper"
-          />
+          <div
+            className="flex-1 w-full overflow-hidden"
+            onContextMenu={(e) => e.preventDefault()}
+          >
+            <iframe
+              src="/credentials/certificate.pdf#view=FitH&toolbar=0&navpanes=0&scrollbar=0"
+              title="Charu Sharma — Quantum Therapy certificate"
+              className="w-full h-full border-0 bg-paper"
+            />
+          </div>
         </div>
       </dialog>
     </>
