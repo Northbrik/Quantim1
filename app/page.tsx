@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Logo from '@/components/Logo';
 import ContactForm from '@/components/ContactForm';
+import CertificateModal from '@/components/CertificateModal';
 
 const ParticleTree = dynamic(() => import('@/components/ParticleTree'), { ssr: false });
 
@@ -116,14 +117,7 @@ export default function Home() {
             <p className="text-inkSoft leading-relaxed mb-6">
               Charu is a certified Quantum Therapist trained by Quantum (R) Evolution.
             </p>
-            <a
-              href="/credentials/certificate.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block rounded-md border border-forest/40 px-5 py-2.5 text-sm text-forest hover:bg-forest hover:text-paper transition-colors"
-            >
-              View certificate →
-            </a>
+            <CertificateModal />
           </div>
         </section>
 

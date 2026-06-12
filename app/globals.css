@@ -46,3 +46,9 @@ a:hover { color: var(--leaf); }
 
 .font-serif { font-family: var(--font-playfair); }
 .font-sans { font-family: var(--font-inter); }
+
+dialog::backdrop {
+  background: rgba(31, 56, 38, 0.35);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
