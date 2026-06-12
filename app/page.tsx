@@ -109,6 +109,28 @@ export default function Home() {
           <hr className="border-earth/20" />
         </div>
 
+        {/* ── CREDENTIALS ── */}
+        <section id="credentials" className="py-16 sm:py-20">
+          <div className="mx-auto max-w-3xl px-5 sm:px-8">
+            <h2 className="font-serif text-2xl sm:text-3xl mb-4">Credentials</h2>
+            <p className="text-inkSoft leading-relaxed mb-6">
+              Charu is a certified Quantum Therapist trained by Quantum (R) Evolution.
+            </p>
+            <a
+              href="/credentials/certificate.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block rounded-md border border-forest/40 px-5 py-2.5 text-sm text-forest hover:bg-forest hover:text-paper transition-colors"
+            >
+              View certificate →
+            </a>
+          </div>
+        </section>
+
+        <div className="mx-auto max-w-3xl px-5 sm:px-8">
+          <hr className="border-earth/20" />
+        </div>
+
         {/* ── ABOUT CHARU ── */}
         <section id="about" className="py-16 sm:py-20">
           <div className="mx-auto max-w-3xl px-5 sm:px-8 grid grid-cols-1 sm:grid-cols-[200px_1fr] gap-6 sm:gap-10 items-start">

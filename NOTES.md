@@ -15,8 +15,8 @@ Supplied. Stored at `/public/logo.png`. The original PNG had a white background,
 ## 4. Health-claim wording
 The original summary used strong absolute claims ("cure all problems", "in record time", "address any... diseases"). The copy on the secondary page has been softened in line with UK ASA/CAP rules for alternative-therapy advertising. Worth a final pass by Charu before launch.
 
-## 5. Credentials section — removed
-Removed at Charu's request.
+## 5. Credentials
+Restored. Charu's certificate is stored at `/public/credentials/certificate.pdf` and linked from the Credentials section via "View certificate →" (opens in a new tab).
 
 ## 6. Contact form delivery
 At Charu's request the Cal.com booking widget was removed in favour of a simple message form. She'll handle Zoom scheduling by email herself for now.
