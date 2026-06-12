@@ -39,7 +39,7 @@ export default function AboutTherapy() {
                 rel="noopener noreferrer"
                 className="text-forest hover:text-leaf underline decoration-leaf/40 underline-offset-4"
               >
-                LinkedIn ↗
+                LinkedIn
               </a>
             </p>
           </header>
@@ -198,10 +198,10 @@ export default function AboutTherapy() {
 
           <div className="mt-12">
             <Link
-              href="/#book"
+              href="/#contact"
               className="inline-block rounded-md border border-forest/40 px-5 py-2.5 text-sm text-forest hover:bg-forest hover:text-paper transition-colors"
             >
-              ← Book a session
+              ← Back to contact
             </Link>
           </div>
         </article>

@@ -15,7 +15,7 @@ export default function Footer() {
           rel="noopener noreferrer"
           className="text-inkSoft hover:text-forest"
         >
-          Blog ↗
+          Blog
         </a>
       </div>
     </footer>

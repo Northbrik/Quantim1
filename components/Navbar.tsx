@@ -7,7 +7,7 @@ const sections = [
   { id: 'introduction', label: 'Introduction' },
   { id: 'therapy', label: 'About the Therapy' },
   { id: 'about', label: 'About Charu' },
-  { id: 'book', label: 'Book a session' },
+  { id: 'contact', label: 'Contact' },
 ];
 
 export default function Navbar() {

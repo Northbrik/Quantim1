@@ -18,14 +18,7 @@ The original summary used strong absolute claims ("cure all problems", "in recor
 ## 5. Credentials section — removed
 Removed at Charu's request.
 
-## 6. Booking — Cal.com
-The contact form was replaced with an inline Cal.com booking calendar. Currently wired to **Joseph's link (`joseph-robinson-kn5ooo`)** for demo purposes — change the `CAL_LINK` constant at the top of `app/page.tsx` once Charu's link exists.
+## 6. Contact form delivery
+At Charu's request the Cal.com booking widget was removed in favour of a simple message form. She'll handle Zoom scheduling by email herself for now.
 
-**Charu's side, one-time setup:**
-1. Sign up at <https://cal.com> (free).
-2. App Store → connect **Zoom** (OAuth — automatic Zoom meeting creation for every booking).
-3. App Store → connect **Google Calendar** (or Outlook) — bookings block her calendar; her busy slots are hidden.
-4. Create a new Event Type called e.g. "Quantum Therapy Session" — duration 60 min, location set to Zoom, default notifications on.
-5. Send her booking link (`cal.com/<her-username>` or `cal.com/<her-username>/quantum-therapy`).
-
-**Our side:** swap `CAL_LINK` in `app/page.tsx` from `joseph-robinson-kn5ooo` to Charu's. That's it. The widget colours, layout, and copy already match the rest of the site.
+The form posts to FormSubmit (`https://formsubmit.co/ajax/quantumview26@gmail.com`) — a free relay, no account needed. **First submission only:** Charu will receive an activation email from FormSubmit and must click the link before subsequent messages are forwarded. After that, every form submission lands in her quantumview26@gmail.com inbox as a tidy table with name, email, and message.

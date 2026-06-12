@@ -4,11 +4,9 @@ import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Logo from '@/components/Logo';
+import ContactForm from '@/components/ContactForm';
 
 const ParticleTree = dynamic(() => import('@/components/ParticleTree'), { ssr: false });
-const BookingCalendar = dynamic(() => import('@/components/BookingCalendar'), { ssr: false });
-
-const CAL_LINK = 'joseph-robinson-kn5ooo';
 
 export default function Home() {
   return (
@@ -48,10 +46,10 @@ export default function Home() {
               </p>
 
               <a
-                href="#book"
+                href="#contact"
                 className="inline-block rounded-md bg-forest px-6 py-3 text-paper text-sm tracking-wide hover:bg-forestDark transition-colors"
               >
-                Book a session
+                Contact
               </a>
             </div>
 
@@ -138,19 +136,19 @@ export default function Home() {
           <hr className="border-earth/20" />
         </div>
 
-        {/* ── BOOK ── */}
-        <section id="book" className="py-16 sm:py-24">
-          <div className="mx-auto max-w-3xl px-5 sm:px-8">
-            <h2 className="font-serif text-2xl sm:text-3xl mb-4">Book a session</h2>
+        {/* ── CONTACT ── */}
+        <section id="contact" className="py-16 sm:py-24">
+          <div className="mx-auto max-w-2xl px-5 sm:px-8">
+            <h2 className="font-serif text-2xl sm:text-3xl mb-4">Contact</h2>
             <p className="text-inkSoft leading-relaxed mb-8">
-              Pick a time that suits you. A Zoom meeting is created automatically and
-              the link is emailed to you.
+              Please get in touch to arrange a session. Charu will reply by email to
+              arrange a time and share the Zoom link.
             </p>
 
-            <BookingCalendar calLink={CAL_LINK} />
+            <ContactForm />
 
             <p className="mt-8 text-sm text-inkSoft">
-              Prefer email? Write to{' '}
+              Or write directly to{' '}
               <a
                 href="mailto:quantumview26@gmail.com"
                 className="text-forest hover:text-leaf underline decoration-leaf/40 underline-offset-4"
