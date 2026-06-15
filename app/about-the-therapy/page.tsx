@@ -2,14 +2,22 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { createReader } from '@keystatic/core/reader';
+import keystaticConfig from '../../keystatic.config';
 
 export const metadata: Metadata = {
   title: 'About the Therapy · Quantum View',
-  description:
-    'A brief summary of Quantum Therapy and contacts of other UK-based Quantum therapists.',
+  description: 'A brief summary of Quantum Therapy.',
 };
 
-export default function AboutTherapy() {
+async function getContent() {
+  const reader = createReader(process.cwd(), keystaticConfig)
+  return reader.singletons.aboutTherapy.read()
+}
+
+export default async function AboutTherapy() {
+  const content = await getContent()
+
   return (
     <>
       <Navbar />
@@ -25,7 +33,7 @@ export default function AboutTherapy() {
             </h1>
             <p className="text-sm text-inkSoft">
               Summary by Ichha B. Talwar, Consulting Counselling Psychologist
-              and Quantum Therapist, based in Saudi Arabia.{' '}
+              and Quantum Therapist.{' '}
               <a
                 href="mailto:m.transformwithin@gmail.com"
                 className="text-forest hover:text-leaf underline decoration-leaf/40 underline-offset-4"
@@ -45,72 +53,44 @@ export default function AboutTherapy() {
           </header>
 
           <section className="mb-10">
-            <h2 className="font-serif text-xl sm:text-2xl mb-3">What is Quantum Science?</h2>
+            <h2 className="font-serif text-xl sm:text-2xl mb-3">What is Quantum Therapy?</h2>
             <p className="text-inkSoft leading-relaxed">
-              Quantum science is the field of physics dealing with the nature of matter
-              and energy at extremely small scales, such as atoms and subatomic particles.
-              Physics has moved from a classical, mechanical view of matter toward
-              concepts such as superposition (particles existing in multiple states at
-              once) and entanglement (particles becoming linked so their properties
-              relate to one another).
-            </p>
-          </section>
-
-          <section className="mb-10">
-            <h2 className="font-serif text-xl sm:text-2xl mb-3">How does this apply as a therapy?</h2>
-            <p className="text-inkSoft leading-relaxed">
-              Quantum therapy is an alternative approach that draws on the principles of
-              quantum physics. It treats body and mind as interconnected energy systems
-              of varying density, and uses focused intention and centring to influence
-              those systems to support balance and overall well-being.
+              {content?.whatIsQuantumTherapy}
             </p>
           </section>
 
           <section className="mb-10">
             <h2 className="font-serif text-xl sm:text-2xl mb-3">Why take it as a therapy session?</h2>
             <p className="text-inkSoft leading-relaxed">
-              It is an alternative modality offering a holistic approach to wellness,
-              and can be used to address a wide range of physical and emotional concerns.
+              {content?.whyTakeAsSession}
             </p>
           </section>
 
           <section className="mb-10">
             <h2 className="font-serif text-xl sm:text-2xl mb-3">What does a typical session look like?</h2>
             <p className="text-inkSoft leading-relaxed">
-              You make an appointment and provide details about your situation. The
-              session includes a brief consultation with the therapist, the therapy
-              itself in a relaxed state, and a short discussion to close.
-            </p>
-            <p className="mt-3 text-xs text-earth/80 italic">
-              Review note: this description is from the original summary. Charu&apos;s sessions
-              are conducted via Zoom; confirm which wording to keep.
+              {content?.typicalSession}
             </p>
           </section>
 
           <section className="mb-10">
             <h2 className="font-serif text-xl sm:text-2xl mb-3">How many sessions?</h2>
             <p className="text-inkSoft leading-relaxed">
-              This varies by individual need and the therapist&apos;s recommendation.
-              Sessions are usually spaced a week or more apart, to allow time for
-              integration between them.
+              {content?.howManySessions}
             </p>
           </section>
 
           <section className="mb-10">
             <h2 className="font-serif text-xl sm:text-2xl mb-3">How long does a session last?</h2>
             <p className="text-inkSoft leading-relaxed">
-              One hour. The client is seated comfortably and the therapist works around
-              the client&apos;s field. Charu&apos;s sessions are held online via a link provided
-              before the appointment.
+              {content?.howLong}
             </p>
           </section>
 
           <section className="mb-12">
             <h2 className="font-serif text-xl sm:text-2xl mb-3">Finally</h2>
             <p className="text-inkSoft leading-relaxed">
-              Quantum therapy is soft, gentle, and non-invasive. It is intended to sit
-              alongside, not replace, any ongoing treatment or advice from the
-              client&apos;s own physician.
+              {content?.finally}
             </p>
           </section>
 
@@ -119,23 +99,26 @@ export default function AboutTherapy() {
           <section className="mb-12">
             <h2 className="font-serif text-xl sm:text-2xl mb-3">About the co-founder</h2>
             <p className="text-inkSoft leading-relaxed">
-              Ekta Bouderlique, founder of{' '}
-              <a
-                href="https://www.quantum-r-evolution.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline decoration-leaf/50 underline-offset-4 hover:decoration-forest"
-              >
-                Quantum (R) Evolution
-              </a>
-              , is a pioneer in developing quantum therapies. She is a Certified Yoga
-              Trainer (Yoga Alliance USA) and a Heartfulness Meditation Trainer, and
-              runs an NGO dedicated to sustainable development. Born in Gujarat, India,
-              she lived for over two decades in France, working as a journalist and
-              public relations consultant and in the participatory and sustainable
-              economy.
+              {content?.aboutCofounder?.includes('Quantum (R) Evolution') ? (
+                <>
+                  {content.aboutCofounder.split('Quantum (R) Evolution')[0]}
+                  <a
+                    href="https://www.quantum-r-evolution.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline decoration-leaf/50 underline-offset-4 hover:decoration-forest"
+                  >
+                    Quantum (R) Evolution
+                  </a>
+                  {content.aboutCofounder.split('Quantum (R) Evolution')[1]}
+                </>
+              ) : (
+                content?.aboutCofounder
+              )}
             </p>
           </section>
+
+          <hr className="border-earth/20 my-10" />
 
           <section className="mb-12">
             <h2 className="font-serif text-xl sm:text-2xl mb-4">Other UK-based Quantum Therapists</h2>

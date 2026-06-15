@@ -1,4 +1,3 @@
-import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import Image from 'next/image';
 import Navbar from '@/components/Navbar';
@@ -6,10 +5,22 @@ import Footer from '@/components/Footer';
 import Logo from '@/components/Logo';
 import ContactForm from '@/components/ContactForm';
 import CertificateModal from '@/components/CertificateModal';
+import { createReader } from '@keystatic/core/reader';
+import keystaticConfig from '../keystatic.config';
 
-const ParticleTree = dynamic(() => import('@/components/ParticleTree'), { ssr: false });
+async function getHomeContent() {
+  const reader = createReader(process.cwd(), keystaticConfig)
+  return reader.singletons.home.read()
+}
 
-export default function Home() {
+export default async function Home() {
+  const content = await getHomeContent()
+
+  const heroSubtitle = content?.heroSubtitle ?? 'Charu Sharma, Quantum Therapist'
+  const introText = content?.introText ?? 'Quantum Therapy is a gentle, non-invasive technique that works on the light field of the client using the Quantum 2-Point method developed by'
+  const moreInfoText = content?.moreInfoText ?? 'A brief summary of the therapy can be found on the About the Therapy page.'
+  const aboutBio = content?.aboutBio ?? 'Charu is an East Sussex and London based Quantum Therapist, university academic, and a Heartfulness Meditation Trainer.'
+
   return (
     <>
       <Navbar />
@@ -20,7 +31,6 @@ export default function Home() {
           className="relative flex items-center"
           style={{ minHeight: '100vh', paddingTop: '5rem', paddingBottom: '4rem' }}
         >
-          {/* Subtle deeper-green radial behind the sphere for dot contrast */}
           <div
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 -z-10"
@@ -43,7 +53,7 @@ export default function Home() {
                 Quantum View
               </h1>
               <p className="text-base sm:text-lg text-inkSoft leading-relaxed mb-8">
-                Charu Sharma, UK-based Quantum Therapist
+                {heroSubtitle}
               </p>
 
               <a
@@ -55,13 +65,20 @@ export default function Home() {
             </div>
 
             <div
-              className="flex items-center justify-center self-center"
+              className="flex items-center justify-center self-center overflow-hidden rounded-xl"
               style={{
                 width: 'min(560px, 82vw)',
-                height: 'min(560px, 82vw)',
+                height: 'min(420px, 62vw)',
               }}
             >
-              <ParticleTree size={560} pointCount={2000} />
+              <Image
+                src="/trees.jpg"
+                alt="Low-angle view of trees"
+                width={560}
+                height={420}
+                className="h-full w-full object-cover"
+                priority
+              />
             </div>
           </div>
         </section>
@@ -70,8 +87,7 @@ export default function Home() {
         <section id="introduction" className="py-20 sm:py-24">
           <div className="mx-auto max-w-3xl px-5 sm:px-8">
             <p className="font-serif text-xl sm:text-2xl leading-relaxed text-forestDark">
-              Quantum Therapy is a gentle, non-invasive technique that works on the
-              light field of the client using the Quantum 2-Point method developed by{' '}
+              {introText}{' '}
               <a
                 href="https://www.quantum-r-evolution.com/"
                 target="_blank"
@@ -80,7 +96,7 @@ export default function Home() {
               >
                 Quantum (R) Evolution
               </a>
-              . A session is held for an hour via Zoom video call.
+              .
             </p>
           </div>
         </section>
@@ -94,8 +110,7 @@ export default function Home() {
           <div className="mx-auto max-w-3xl px-5 sm:px-8">
             <h2 className="font-serif text-2xl sm:text-3xl mb-4">More information</h2>
             <p className="text-inkSoft leading-relaxed mb-6">
-              A brief summary of the therapy and contacts of other UK-based Quantum
-              therapists can be found on the <em>About the Therapy</em> page.
+              {moreInfoText}
             </p>
             <Link
               href="/about-the-therapy"
@@ -141,8 +156,7 @@ export default function Home() {
             <div>
               <h2 className="font-serif text-2xl sm:text-3xl mb-4">About Charu</h2>
               <p className="text-inkSoft leading-relaxed">
-                Charu is an East Sussex and London based Quantum Therapist, university
-                academic, and a Heartfulness Meditation Trainer.
+                {aboutBio}
               </p>
             </div>
           </div>
