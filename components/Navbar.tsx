@@ -7,6 +7,7 @@ const sections = [
   { id: 'introduction', label: 'Introduction' },
   { id: 'therapy', label: 'About the Therapy' },
   { id: 'credentials', label: 'Credentials' },
+  { id: 'pricing', label: 'Pricing' },
   { id: 'about', label: 'About Charu' },
   { id: 'contact', label: 'Contact' },
 ];

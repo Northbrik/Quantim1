@@ -29,6 +29,12 @@ export default config({
           label: 'More information paragraph',
           multiline: true,
         }),
+        pricingText: fields.text({
+          label: 'Pricing — main line (e.g. "A session costs £70.")',
+        }),
+        pricingNote: fields.text({
+          label: 'Pricing — note (e.g. "Concessionary rate available.")',
+        }),
         aboutBio: fields.text({
           label: 'About Charu — bio text',
           multiline: true,

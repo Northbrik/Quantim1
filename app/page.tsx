@@ -20,6 +20,8 @@ export default async function Home() {
   const introText = content?.introText ?? 'Quantum Therapy is a gentle, non-invasive technique that works on the light field of the client using the Quantum 2-Point method developed by'
   const moreInfoText = content?.moreInfoText ?? 'A brief summary of the therapy can be found on the About the Therapy page.'
   const aboutBio = content?.aboutBio ?? 'Charu is an East Sussex and London based Quantum Therapist, university academic, and a Heartfulness Meditation Trainer.'
+  const pricingText = content?.pricingText ?? 'A session costs £70.'
+  const pricingNote = content?.pricingNote ?? 'Concessionary rate available.'
 
   return (
     <>
@@ -133,6 +135,21 @@ export default async function Home() {
               Charu is a certified Quantum Therapist trained by Quantum (R) Evolution.
             </p>
             <CertificateModal />
+          </div>
+        </section>
+
+        <div className="mx-auto max-w-3xl px-5 sm:px-8">
+          <hr className="border-earth/20" />
+        </div>
+
+        {/* ── PRICING ── */}
+        <section id="pricing" className="py-16 sm:py-20">
+          <div className="mx-auto max-w-3xl px-5 sm:px-8">
+            <h2 className="font-serif text-2xl sm:text-3xl mb-4">Pricing</h2>
+            <p className="text-inkSoft leading-relaxed">{pricingText}</p>
+            {pricingNote && (
+              <p className="mt-2 text-inkSoft leading-relaxed">{pricingNote}</p>
+            )}
           </div>
         </section>
 
