@@ -2,7 +2,7 @@ import { config, fields, singleton } from '@keystatic/core'
 
 export default config({
   storage:
-    process.env.NODE_ENV === 'production'
+    process.env.KEYSTATIC_GITHUB_CLIENT_ID
       ? {
           kind: 'github',
           repo: { owner: 'Northbrik', name: 'Quantim1' },
