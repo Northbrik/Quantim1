@@ -140,21 +140,14 @@ export default async function AboutTherapy() {
                 >
                   kr@proactons.com
                 </a>
-                {' · '}
-                <a
-                  href="tel:+447515378711"
-                  className="text-forest hover:text-leaf underline decoration-leaf/40 underline-offset-4"
-                >
-                  +44 7515 378711
-                </a>
               </li>
               <li>
                 Paramjit Gill ·{' '}
                 <a
-                  href="mailto:Paramjit@heartfulness.uk"
+                  href="mailto:guru447@hotmail.com"
                   className="text-forest hover:text-leaf underline decoration-leaf/40 underline-offset-4"
                 >
-                  Paramjit@heartfulness.uk
+                  guru447@hotmail.com
                 </a>
               </li>
             </ul>

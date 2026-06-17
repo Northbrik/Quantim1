@@ -20,7 +20,7 @@ export default function Footer() {
       </div>
       <div className="mx-auto max-w-5xl px-5 sm:px-8 pb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs text-inkSoft/80">
         <p>
-          Hero photograph by{' '}
+          Trees photograph by{' '}
           <a
             href="https://www.pexels.com/@chaitaastic/"
             target="_blank"
